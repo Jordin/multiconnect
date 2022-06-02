@@ -358,6 +358,16 @@ publishing {
 			pom.name = 'multiconnect-slim'
 			pom.description = 'The multiconnect mod JAR without the API'
 		}
+		generated(MavenPublication) {
+			artifactId 'multiconnect-generated'
+			artifact(remapGeneratedJar) {
+				builtBy remapGeneratedJar
+				classifier = ''
+			}
+			pom configurePom
+			pom.name = 'multiconnect-generated'
+			pom.description = 'The multiconnect generated sources'
+		}
 	}
 }
 
